@@ -9,21 +9,27 @@ class WordCounter(object):
         '''
             Checks if two WordCounter objects have same number of words
         '''
-        return len(self._sentence) == len(other.sentence)
+        if not isinstance(other, type(self)):
+            return 'Class should be of type WordCounter and not ' + str(type(other))
+        return len(self._sentence) == len(other._sentence)
 
     def __lt__(self, other):
         '''
             Checks if current WordCouter object has lesser number of 
             words than other WordCounter object
         '''
-        return len(self._sentence) < len(other.sentence)
+        if not isinstance(other, type(self)):
+            return 'Class should be of type WordCounter and not ' + str(type(other))
+        return len(self._sentence) < len(other._sentence)
 
     def __gt__(self, other):
         '''
             Checks if current WordCouter object has greater number of 
             words than other WordCounter object
         '''
-        return len(self._sentence) > len(other.sentence)
+        if not isinstance(other, type(self)):
+            return 'Class should be of type WordCounter and not ' + str(type(other))
+        return len(self._sentence) > len(other._sentence)
 
     def get_word_count(self):
         '''
