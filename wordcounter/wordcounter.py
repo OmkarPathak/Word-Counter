@@ -76,10 +76,6 @@ class WordCounter(object):
         pass
 
 
-def main(argv):
-    parser = argparse.ArgumentParser(description='Process some integers.')
-
-
 if __name__ == '__main__':
     word_counter = WordCounter('The quick brown fox jumps over the lazy dog')
     print(word_counter.get_word_count())
