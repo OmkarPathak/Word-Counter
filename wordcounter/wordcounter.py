@@ -1,5 +1,8 @@
+
+import argparse,sys
+
 class WordCounter(object):
-    def __init__(self, sentence, delimiter=' '):
+    def __init__(self, sentence, delimiter=None):
         '''
             :param sentence: Sequence of words or a single word
         '''
@@ -70,12 +73,24 @@ class WordCounter(object):
     def most_common(self, count):
         # TODO
         pass
-    
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Process some file text.')
+    parser.add_argument("--f", help="count number of words in specified file", type=str)
+    args = parser.parse_args()
+    if args.f:
+        data = ''
+        try:
+            with open(args.f, 'r') as f:
+                data = f.read().replace('\n', ' ')
+        except Exception as e:
+            print("Some error happened,please try again ", str(e))
+            sys.exit(0)
+        word_counter = WordCounter(data)
+        print(word_counter.get_word_count())
+
 
 if __name__ == '__main__':
-    word_counter = WordCounter('The quick brown fox jumps over the lazy dog')
-    # word_counter2 = WordCounter('the quick brown fox jumps over the lazy dog')
-    # print(word_counter == word_counter2)
-    print(word_counter.get_word_count())
-    print(word_counter.count('the'))
-    print(word_counter.get_word_frequencies())
+    main()
+
