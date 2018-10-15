@@ -1,3 +1,5 @@
+import argparse
+
 class WordCounter(object):
     def __init__(self, sentence, delimiter=' '):
         '''
@@ -73,7 +75,17 @@ class WordCounter(object):
     
 
 if __name__ == '__main__':
-    word_counter = WordCounter('The quick brown fox jumps over the lazy dog')
+    parser = argparse.ArgumentParser(description='Process file input.')
+    parser.add_argument("-f", "--filename", help="File name", required=False)
+    args = parser.parse_args()
+    
+    if(args.filename is not None):
+        with open(args.filename, 'r') as myfile:
+            sentence=myfile.read().replace('\n', '')
+        word_counter = WordCounter(sentence)
+    else:
+        word_counter = WordCounter('The quick brown fox jumps over the lazy dog')
+    
     # word_counter2 = WordCounter('the quick brown fox jumps over the lazy dog')
     # print(word_counter == word_counter2)
     print(word_counter.get_word_count())
