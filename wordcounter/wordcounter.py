@@ -1,5 +1,4 @@
-import argparse
-import re
+import argparse,sys
 
 
 class WordCounter(object):
@@ -76,8 +75,21 @@ class WordCounter(object):
         pass
 
 
+def main():
+    parser = argparse.ArgumentParser(description='Process some file text.')
+    parser.add_argument("--f", help="count number of words in specified file", type=str)
+    args = parser.parse_args()
+    if args.f:
+        data = ''
+        try:
+            with open(args.f, 'r') as f:
+                data = f.read().replace('\n', ' ')
+        except Exception as e:
+            print("Some error happened,please try again ", str(e))
+            sys.exit(0)
+        word_counter = WordCounter(data)
+        print(word_counter.get_word_count())
+
+
 if __name__ == '__main__':
-    word_counter = WordCounter('The quick brown fox jumps over the lazy dog')
-    print(word_counter.get_word_count())
-    print(word_counter.count('the'))
-    print(word_counter.get_word_frequencies())
+    main()
