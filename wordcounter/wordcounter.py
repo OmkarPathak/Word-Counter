@@ -1,6 +1,3 @@
-import argparse
-import re
-
 
 class WordCounter(object):
     def __init__(self, sentence, delimiter=None):
