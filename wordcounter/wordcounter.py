@@ -1,5 +1,9 @@
+import argparse
+import re
+
+
 class WordCounter(object):
-    def __init__(self, sentence, delimiter=' '):
+    def __init__(self, sentence, delimiter=None):
         '''
             :param sentence: Sequence of words or a single word
         '''
@@ -70,12 +74,14 @@ class WordCounter(object):
     def most_common(self, count):
         # TODO
         pass
-    
+
+
+def main(argv):
+    parser = argparse.ArgumentParser(description='Process some integers.')
+
 
 if __name__ == '__main__':
     word_counter = WordCounter('The quick brown fox jumps over the lazy dog')
-    # word_counter2 = WordCounter('the quick brown fox jumps over the lazy dog')
-    # print(word_counter == word_counter2)
     print(word_counter.get_word_count())
     print(word_counter.count('the'))
     print(word_counter.get_word_frequencies())
