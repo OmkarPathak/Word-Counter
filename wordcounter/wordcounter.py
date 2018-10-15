@@ -1,5 +1,5 @@
-import argparse,sys
 
+import argparse,sys
 
 class WordCounter(object):
     def __init__(self, sentence, delimiter=None):
@@ -93,3 +93,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
