@@ -2,6 +2,8 @@
 
 A Python Word Counter module
 
+[![Downloads](https://pepy.tech/badge/wordcounter)](https://pepy.tech/project/wordcounter)
+
 # Installation
 
 ```bash
