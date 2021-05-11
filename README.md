@@ -21,7 +21,7 @@ import wordcounter
 - Create a object with sentence and delimiter as arguments to WordCounter class. Default value for delimiter is ' ' (a single space) 
 
 ```python
-word_counter = WordCounter('The, quick, brown, fox, jumps, over, the, lazy, dog', delimiter=', ')
+word_counter = wordcounter.WordCounter('The, quick, brown, fox, jumps, over, the, lazy, dog', delimiter=', ')
 ```
 
 - Get word count
